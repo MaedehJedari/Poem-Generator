@@ -15,6 +15,14 @@ function generatePoem(event) {
   let apiContext =
     "You are the best poet in the world who is an expert in writing quatrains. Write quatrains in basic HTML format and put a <br /> between each line and dont write any html or backticks";
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${apiPrompt}&context=${apiContext}&key=${apiKey}`;
+
+  //let poemElement = document.querySelector("#poem");
+  // poemElement.style.display = "block";
+
+  let poemElement = document.querySelector("#poem");
+  poemElement.classList.remove("hidden");
+  poemElement.innerHTML = `<div class="blink">⏳ Generating a poem about ${userCommandElement.value}</div>`;
+
   axios.get(apiUrl).then(displayPoem);
 }
 
